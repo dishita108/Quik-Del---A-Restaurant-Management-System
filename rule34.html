@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant management system</title>
+     <!--Font awesome cdn link-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!--Bootsrap-->
+     <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+     <!--custom css -->
+     <link rel="stylesheet" href="css/style.css"> 
+     <!--JS-->
+     <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script src="js/script.js"></script>
+    
+
+     <!--inline css-->
+     <style>
+         :root{
+            --red:#ff3838;
+        }
+         .resto{
+             text-transform: none;
+         }
+         .resto img{
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+            border:.1rem solid rgba(0,0,0,.3);
+            cursor: pointer;
+            border-radius: .5rem;
+         }
+
+         .resto h1{
+            font-size: 3.5rem;
+            padding:1rem;
+            color:#666;
+         }
+
+         .resto h1 span{
+            color:var(--red);
+            }
+        .resto h4{
+            word-wrap:break-word;
+        }
+        .resto h5{
+            margin-left:10px;
+            color:#666;
+        }
+
+        .resto h5 span{
+            font-style:italic ;
+            margin-right:1%;
+        }
+
+        .resto i{
+            margin-right:1%;
+            color:#666;
+        }
+        .menu{
+            margin-left:200px;
+            
+        }
+
+        .lsec{
+            border-radius: 5%;
+            border:1rem;
+            border-color: black;
+        }
+        
+        .menu li{
+            font-size:1.5rem;
+            color:#666;
+            margin-left:2%;
+            
+        }
+
+        .menu a{
+            text-decoration: none;
+            color:#666;
+
+        }
+        .menu .active a{
+            color:#ff3838;
+        }
+        .rsec ul{
+            width:100%;
+            display:flex;
+            flex-wrap:wrap;
+        }
+        .rsec ul li{
+            width:25%;
+            height:350px;
+            padding:20px;
+            margin: 10px;
+            border-radius: 10px;
+            background:whitesmoke;
+            overflow:hidden;
+            transition: 0.5s;
+        }
+
+        .rsec ul li img{
+            width:100%;
+            height:70%;
+        }
+
+        .rsec article{
+            padding-top:3%;
+            font-weight: bold;
+        }
+
+        .incbut{
+            width:100%;
+            display:flex;
+            flex-wrap:wrap;
+        }
+
+        .rsec .bt1{
+            width:50%;
+        }
+
+
+        .button-area button{
+        color: #fff;
+        border: none;
+        outline: none;
+        font-size: 12px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top:1rem;
+        padding: 12px 12px;
+        background: #ff3838;
+        transition: background 0.3s ease;
+    }
+  .button-area button:hover{
+        background: #ff3838;
+  }
+  .button-area span{
+        font-size: 17px;
+        margin-left: 30px;
+        display: none;
+  }
+    </style>
+     <!--inline css ends-->
+</head>
+
+<body>
+    <!--header starts-->
+    <div class="header">
+        <h1>Quik-Del</h1>
+    </div>
+    <!--header ends-->
+    <!--sidebar starts-->
+    <div class="sidebar">
+        <a href="index.html">Home</a>
+        <a href="#speciality">Popular Dishes</a>
+        <a href="#steps">How it works</a>
+        <a class="dropdown-btn" onclick="dropNav()">Restaurants
+            <i class="fa fa-caret-down"></i>
+        </a> 
+        <div class="dropdown-container">
+            <a href="rule34.html">Rule 34</a>
+            <a href="cracker.html">The Nutcracker</a>
+            <a href="spesso.html">Spesso</a>
+            <a href="burgerk.html">Burger King</a>
+        </div>
+        <a href="order.html">View Order</a>
+        <a href="bookTable.html">Book a Table</a>
+        <a href="#footer">Contact Us</a>
+    </div>
+    <!--sidebar ends-->
+    <!--about restaurant starts-->
+    <section class="container resto my-5 pt-5">
+        <div class="row mt-5">
+            <div class="col-lg-3 col-md-12 col-12">
+                <img class="img-fluid w-35" style="margin-left:15% " src="images/rule34.jpeg" alt="">
+            </div>
+        
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="rest-name">
+                <h1 >Rule <span>34</span></h1>
+                </div>
+                <h4 style="text-transform: none;">A super-snug chill zone with a beautiful layout having 3 dining sections:<br>outdoor + indoor + internal stage with live performances on weekends.</h4>
+                <hr>
+                <h5><i class='fas fa-map-marker'></i><span>Location:</span>  Kandivali - Mumbai.</h3>
+                <h5><i class='fas fa-clock'></i><span>Timings:</span>  9am - 10pm</h3>
+                <h5><i class='fas fa-rupee-sign'></i><span>Cost for two:</span>  Rs. 1400</h3>
+                <h5><i class='fas fa-star'></i><span>Average rating:</span>  4.2/5</h3>
+                <div class="button-area">
+                    <form>
+                <button formaction="bookTable.html" >Book a Table</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--about restaurant ends-->
+    <!--menu starts-->
+    <section class="container menu" id="menu">
+        <h1 class="heading">Order<span> Now</span></h1>
+        <div class="row mt-5">
+            <div class="col-lg-2 col-md-4 col-12 lsec">
+            <ul class="indicator">
+                <li data-filter="all" class="active"><a href="#menu">All</a></li>
+                <li data-filter="indian"><a href="#menu">Indian</a></li>
+                <li data-filter="italian"><a href="#menu">Italian</a></li>
+                <li data-filter="chinese"><a href="#menu">Chinese</a></li>
+                <li data-filter="fastfood"><a href="#menu">Fast Food</a></li>
+                <li data-filter="desserts"><a href="#menu">Desserts</a></li>
+                <li data-filter="beverages"><a href="#menu">Beverages</a></li>
+
+            </ul>
+            </div>
+            <div class="col-lg-10 col-md-12 col-12 rsec">
+                
+                <ul class="items" style="list-style-type:none;">
+                    <li data-category="fastfood">
+                        <img src="images/s-img-1.jpg" alt="">
+                        <article>Veg Cheese Burger</article>
+                        <h4>Rs.175</h4>
+                        <div class="incbut">
+                        <div class="bt1" style="margin-top:7%;">
+                        <input id=demoInput type=number min=1 max=20 placeholder="1">
+                        <button onclick="increment()"> + </button>
+                        <button onclick="decrement()"> - </button>
+                            </div>
+                        <div class="bt1">
+                        <div class="button-area" >
+                            <form>
+                        <button id="mybtn" >Add to cart</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                    </li>
+                <li data-category="italian">
+                    <img src="images/s-img-2.jpg" alt="">
+                    <div class="name">
+                        <article>Farmhouse Pizza(7')</article>
+                    </div>
+                    <div class="price">
+                        <h4>Rs.250</h4>
+                    </div>
+                    <div class="incbut">
+                        <div class="bt1" style="margin-top:7%;">
+                        <input id=demoInput type=number min=1 max=20 placeholder="1">
+                        <button onclick="increment()"> + </button>
+                        <button onclick="decrement()"> - </button>
+                            </div>
+                        <div class="bt1">
+                        <div class="button-area" >
+                            <form>
+                        <button  >Add to cart</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                <li data-category="fastfood">
+                    <img src="images/fries.jpeg" alt="">
+                    <div class="name">
+                    <article>French Fries</article>
+                    </div>
+                    <div class="price">
+                    <h4>Rs.125</h4>
+                    </div>
+                    <div class="incbut">
+                        <div class="bt1" style="margin-top:7%;">
+                        <input id=demoInput type=number min=1 max=20 placeholder="1">
+                        <button onclick="increment()"> + </button>
+                        <button onclick="decrement()"> - </button>
+                            </div>
+                        <div class="bt1">
+                        <div class="button-area" >
+                            <form>
+                        <button  >Add to cart</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                <li data-category="chinese">
+                    <img src="images/manchurian.jpeg" alt="">
+                    <article>Veg Manchurian</article>
+                    <h4>Rs.199</h4>
+                    <div class="incbut">
+                        <div class="bt1" style="margin-top:7%;">
+                        <input id=demoInput type=number min=1 max=20 placeholder="1">
+                        <button onclick="increment()"> + </button>
+                        <button onclick="decrement()"> - </button>
+                            </div>
+                        <div class="bt1">
+                        <div class="button-area" >
+                            <form>
+                        <button  >Add to cart</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                <li data-category="indian">
+                    <img src="images/pbhaji.jpeg" alt="">
+                    <article>Pav Bhaji</article>
+                    <h4>Rs.175</h4>
+                    <div class="incbut">
+                        <div class="bt1" style="margin-top:7%;">
+                        <input id=demoInput type=number min=1 max=20 placeholder="1">
+                        <button onclick="increment()"> + </button>
+                        <button onclick="decrement()"> - </button>
+                            </div>
+                        <div class="bt1">
+                        <div class="button-area" >
+                            <form>
+                        <button  >Add to cart</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                <li data-category="indian">
+                    <img src="images/indian1.jpeg" alt="">
+                    <article>Paneer Tikka</article>
+                    <h4>Rs.325</h4>
+                    <div class="incbut">
+                        <div class="bt1" style="margin-top:7%;">
+                        <input id=demoInput type=number min=1 max=20 placeholder="1">
+                        <button onclick="increment()"> + </button>
+                        <button onclick="decrement()"> - </button>
+                            </div>
+                        <div class="bt1">
+                        <div class="button-area" >
+                            <form>
+                        <button  >Add to cart</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                <li data-category="indian">
+                    <img src="images/dosa.jpeg" alt="">
+                    <article>Masala Dosa</article>
+                    <h4>Rs.120</h4>
+                    <div class="incbut">
+                        <div class="bt1" style="margin-top:7%;">
+                        <input id=demoInput type=number min=1 max=20 placeholder="1">
+                        <button onclick="increment()"> + </button>
+                        <button onclick="decrement()"> - </button>
+                            </div>
+                        <div class="bt1">
+                        <div class="button-area" >
+                            <form>
+                        <button  >Add to cart</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                <li data-category="beverages">
+                    <img src="images/drink1.jpeg" alt="">
+                    <article>Mojito</article>
+                    <h4>Rs.289</h4>
+                    <div class="incbut">
+                        <div class="bt1" style="margin-top:7%;">
+                        <input id=demoInput type=number min=1 max=20 placeholder="1">
+                        <button onclick="increment()"> + </button>
+                        <button onclick="decrement()"> - </button>
+                            </div>
+                        <div class="bt1">
+                        <div class="button-area" >
+                            <form>
+                        <button  >Add to cart</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                <li data-category="beverages">
+                    <img src="images/coffee.jpeg" alt="">
+                    <article>Coffee</article>
+                    <h4>Rs.75</h4>
+                    <div class="incbut">
+                        <div class="bt1" style="margin-top:7%;">
+                        <input id=demoInput type=number min=1 max=20 placeholder="1">
+                        <button onclick="increment()"> + </button>
+                        <button onclick="decrement()"> - </button>
+                            </div>
+                        <div class="bt1">
+                        <div class="button-area" >
+                            <form>
+                        <button  >Add to cart</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                <li data-category="desserts">
+                    <img src="images/cake.jpeg" alt="">
+                    <article>Chocolate Pastry</article>
+                    <h4>Rs.185</h4>
+                    <div class="incbut">
+                        <div class="bt1" style="margin-top:7%;">
+                        <input id=demoInput type=number min=1 max=20 placeholder="1">
+                        <button onclick="increment()"> + </button>
+                        <button onclick="decrement()"> - </button>
+                            </div>
+                        <div class="bt1">
+                        <div class="button-area" >
+                            <form>
+                        <button  >Add to cart</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                <li data-category="dessets">
+                    <img src="images/s-img-3.jpg" alt="">
+                    <article>Ice-cream</article>
+                    <h4>Rs.89( 1 scoop )</h4>
+                    <div class="incbut">
+                        <div class="bt1" style="margin-top:7%;">
+                        <input id=demoInput type=number min=1 max=20 placeholder="1">
+                        <button onclick="increment()"> + </button>
+                        <button onclick="decrement()"> - </button>
+                            </div>
+                        <div class="bt1">
+                        <div class="button-area" >
+                            <form>
+                        <button  >Add to cart</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+    <!--menu ends-->
+    <!--footer start-->
+    <section class="footer" id="footer">
+
+        <div class="share">
+            <a href="#" class="btn">facebook</a>
+            <a href="#" class="btn">twitter</a>
+            <a href="#" class="btn">instagram</a>
+            <a href="#" class="btn">pinterest</a>
+            <a href="#" class="btn">linkedin</a>
+        </div>
+    
+        <h1 class="credit"> created by <span> dishita ashar </span> using <code>html </code>, <code>css </code>and <code>javascript.</code></h1>
+        <small>All images have been take from Google and information from Zomato( slightly modified)</small>
+    </section>
+    <!--footer ends-->
+
+<!--JS-->
+<script type="text/javascript">
+    function increment() {
+      document.getElementById('demoInput').stepUp();
+   }
+   function decrement() {
+      document.getElementById('demoInput').stepDown();
+   }
+   function confirm(){
+   var btn = document.getElementById("mybtn");
+btn.value = 'my value'; // will just add a hidden value
+btn.innerHTML = 'Added';
+}
+
+    let indicator = document.querySelector('.indicator').children;
+    let main = document.querySelector('.items').children;
+    console.log(indicator);
+    console.log(main);
+    for(let i=0; i<indicator.length;i++)
+    {
+        indicator[i].onclick=function(){
+            for(let x=0;x<indicator.length;x++)
+            {
+                indicator[x].classList.remove('active');
+            }
+            this.classList.add('active');
+                const displayItems = this.getAttribute('data-filter');
+                console.log(displayItems);
+                for(z=0;z<main.length;z++)
+                {
+                    main[z].style.transform='scale(0)';
+                    setTimeout(()=>{
+                        main[z].style.display='none';
+                    }, 500);
+
+                    if((main[z].getAttribute('data-category')==displayItems) || displayItems =='all')
+                    {
+                        main[z].style.transform='scale(1)';
+                        setTimeout(()=>{
+                            main[z].style.display='block';
+                        },500);
+                    }
+
+                }
+            }
+        }
+    
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

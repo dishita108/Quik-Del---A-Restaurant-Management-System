@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font awesome cdn link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--custom css -->
+    <link rel="stylesheet" href="css/book.css"> 
+    <title>Book A Table</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Quik-Del</h1>
+    </div>
+    <div class="sidebar">
+        <a href="index.html">Home</a>
+        <a href="#speciality">Popular Dishes</a>
+        <a href="#steps">How it works</a>
+        <a class="dropdown-btn" onclick="dropNav()">Restaurants
+            <i class="fa fa-caret-down"></i>
+        </a> 
+        <div class="dropdown-container">
+            <a href="rule34.html">Rule 34</a>
+            <a href="cracker.html">The Nutcracker</a>
+            <a href="spesso.html">Spesso</a>
+            <a href="burgerk.html">Burger King</a>
+        </div>
+        <a href="order.html">View Order</a>
+        <a href="bookTable.html">Book A Table</a>
+        <a href="#footer">Contact Us</a>
+    </div>
+    <h1 class="heading"> <span> Confirm </span>Payment</h1>
+    <div class=bodybook>
+        
+    <div class="wrapper">
+        
+        <form name="Booking" action="#">
+          <div class="dbl-field">
+            <div class="field">
+              <input type="text" name="name" placeholder="Enter your name" required>
+              <i class='fas fa-user'></i>
+            </div>
+            <div class="field">
+              <input type="email" name="email" placeholder="Enter your email" required>
+              <i class='fas fa-envelope'></i>
+            </div>
+          </div>
+          <div class="dbl-field">
+            <div class="field">
+              <input type="text" name="phone" placeholder="Enter your phone" required>
+              <i class='fas fa-phone-alt'></i>
+            </div>
+            <div class="field">
+                <input type="text" name="cardno" placeholder="Enter your card no." required>
+                
+            </div>
+            </div>
+            <div class="dbl-field">
+                <div class="field">
+                  <input type="password" name="cvv" placeholder="Enter your CVV" required>
+                  
+                </div>
+                <div class="field">
+                    <input type="month" name="phone" placeholder="Enter expiry date" required>
+                </div>
+                </div>
+          <div class="button-area">
+            <button  onclick="alert('Payment Successful!')" onsubmit="return false">Pay Now</button>
+            <span></span>
+          </div>
+        </form>
+      </div>
+      </div>
+      <!--footer starts-->
+    <section class="footer" id="footer">
+
+        <div class="share">
+            <a href="#" class="btn">facebook</a>
+            <a href="#" class="btn">twitter</a>
+            <a href="#" class="btn">instagram</a>
+            <a href="#" class="btn">pinterest</a>
+            <a href="#" class="btn">linkedin</a>
+        </div>
+    
+        <h1 class="credit"> created by <span> Dishita Ashar </span> using <code>html </code>, <code>css </code>and <code>javascript.</code></h1>
+        <small>All images have been take from Google and information from Zomato( slightly modified)</small>
+    
+    </section>
+    <!--footer ends-->
+      <script src="js/script.js"></script>
+      <script>
+        
+        function validateForm(){
+            let a = document.forms["Booking"]["name"].value;
+            let b = document.forms["Booking"]["email"].value;
+            let c = document.forms["Booking"]["phone"].value;
+            let d = document.forms["Booking"]["people"].value;
+            let e = document.forms["Booking"]["date"].value;
+            let f = document.forms["Booking"]["time"].value;
+            let g = document.forms["Booking"]["rest"].value;
+
+            try{
+                if(c.length!=10){
+                    throw "Mobile number should contain 10 digits!"
+                }
+            }
+            catch(err){
+                window.alert(err)
+            }
+            finally{
+            if (a == "" || b=="" || c==""  || d=="" || e=="" || f=="" || g=="" || c.length!=10 ) {
+                window.alert("Please fill form completely!");
+                
+            }
+            else{
+                var table = Math.floor(Math.random() * 15) + 1;
+                    var date = new Date();
+                    var msg = 'Your booking has been successfully done on ' + date +  '! Table number assigned is '+ table;
+                    window.alert(msg);
+                    console.log("yes");
+            }
+        }
+        }
+
+        </script>
+
+</body>
+</html>

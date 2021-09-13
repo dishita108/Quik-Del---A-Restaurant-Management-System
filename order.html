@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+     <!--Font awesome cdn link-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!--custom css -->
+     <link rel="stylesheet" href="css/style.css"> 
+     <!--JS-->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+     <script src="js/script.js"></script>
+
+     <!--css-->
+     <style>
+         .checkout{
+             margin-left:200px;
+         }
+
+         .button-area button{
+                display:flex;
+                flex-wrap: wrap;
+                color: #fff;
+                border: none;
+                outline: none;
+                font-size: 12px;
+                cursor: pointer;
+                border-radius: 5px;
+                margin-top:1rem;
+                padding: 12px 12px;
+                background: #ff3838;
+                transition: background 0.3s ease;
+                justify-content: flex-end;
+                margin-left:200px;
+                margin-right:29%;
+                margin-top:2%;
+                margin-bottom:3%;
+                float: right;
+                
+            }
+        .button-area button:hover{
+                background: #ff3838;
+        }
+        .button-area span{
+                font-size: 17px;
+                margin-left: 30px;
+                display: none;
+        }
+
+         @media screen and (max-width:768px){
+             .checkout{
+                 margin-left:0px;
+             }
+
+             table{
+                 margin-left:0px;
+             }
+         }
+
+     </style>
+</head>
+<body>
+     <!--header starts-->
+     <div class="header">
+        <h1>Quik-Del</h1>
+    </div>
+    <!--header ends-->
+    <!--sidebar starts-->
+    <div class="sidebar">
+        <a href="index.html">Home</a>
+        <a href="#speciality">Popular Dishes</a>
+        <a href="#steps">How it works</a>
+        <a class="dropdown-btn" onclick="dropNav()">Restaurants
+            <i class="fa fa-caret-down"></i>
+        </a> 
+        <div class="dropdown-container">
+            <a href="rule34.html">Rule 34</a>
+            <a href="cracker.html">The Nutcracker</a>
+            <a href="spesso.html">Spesso</a>
+            <a href="burgerk.html">Burger King</a>
+        </div>
+        <a href="order.html">View Order</a>
+        <a href="bookTable.html">Book a Table</a>
+        <a href="#footer">Contact Us</a>
+    </div>
+    <!--sidebar ends-->
+    <!--order page starts-->
+    <h1 class="heading">Confirm<span> Order</span></h1>
+    <div class="small-container checkout">
+        <table>
+            <tr>
+                <th>Food Item</th>
+                <th>Restaurant</th>
+                <th>Quantity</th>
+                <th>Total Cost</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="images/s-img-1.jpg" alt="">
+                        <div>
+                            <p>Veg Cheese Burger</p>
+                            <small>Rs. 175</small>
+                            <br>
+                            <a href="" >Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td>Rule 34</td>
+                <td ><input type="number" value="1" min=1 ></td>
+                <td>Rs. 175</td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="images/s-img-2.jpg" alt="">
+                        <div>
+                            <p>Farmhouse Pizza(7')</p>
+                            <small>Rs. 250</small>
+                            <br>
+                            <a href="" >Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td>Rule 34</td>
+                <td><input type="number" value="1" min=1></td>
+                <td>Rs. 250</td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="images/fries.jpeg" alt="">
+                        <div>
+                            <p>French Fries</p>
+                            <small>Rs. 150</small>
+                            <br>
+                            <a href="" >Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td>Rule 34</td>
+                <td><input type="number" value="1" min=1></td>
+                <td>Rs. 150</td>
+            </tr>
+        </table>
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>Rs. 575</td>
+                </tr>
+                <tr>
+                    <td>Tax</td>
+                    <td>Rs. 75</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>Rs. 650</td>
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+    <div class="bt1">
+        <div class="button-area" >
+            <form>
+        <button  formaction="payment.html" >Proceed to payment</button>
+        <span></span>
+            </form>
+        </div>
+    </div>
+    <section class="footer" id="footer">
+
+        <div class="share">
+            <a href="#" class="btn">facebook</a>
+            <a href="#" class="btn">twitter</a>
+            <a href="#" class="btn">instagram</a>
+            <a href="#" class="btn">pinterest</a>
+            <a href="#" class="btn">linkedin</a>
+        </div>
+    
+        <h1 class="credit"> created by <span> dishita ashar </span> using <code>html </code>, <code>css </code>and <code>javascript.</code></h1>
+        <small>All images have been take from Google and information from Zomato( slightly modified)</small>
+    
+    </section>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant management system</title>
+     <!--Font awesome cdn link-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!--custom css -->
+     <link rel="stylesheet" href="css/style.css"> 
+     <!--JS-->
+     <script src="js/script.js"></script>
+     <!--store name using cookies-->
+     <script>
+         function setCookie(name,value,exp_days){
+             var d = new Date();
+             d.setTime(d.getTime() +(exp_days*24*60*60));
+             var expires = "expires=" + d.toGMTString();
+             //document.cookie = "hi";
+             document.cookie = name + "=" + value + ";" + expires + ";path=/";
+             console.log("cookie is: " + document.cookie);
+             }
+
+             function getCookie(name){
+                 var cname = name + "=";
+                 var decodedCookie = decodeURIComponent(document.cookie);
+                 var ca = decodedCookie.split(';');
+                 for (var i=0;i<ca.length;i++){
+                     var c = ca[i];
+                     while(c.charAt(0)==' '){
+                         c = c.substring(1);
+                     }
+                     if(c.indexOf(cname)==0){
+                         return c.substring(cname.length,c.length);
+                     }
+                 }
+                 return ""
+             }
+
+             function deleteCookie(name){
+                 var d= new Date();
+                 d.setTime(d.getTime()-(60*60*1000));
+                 var expires = "expires=" + d.toGMTString();
+                 document.cookie= name+ "=;" + expires + ";path=/";
+             }
+
+             function checkCookie(){
+                //deleteCookie=("username");
+                 var user = getCookie("username");
+                 console.log(user);
+                 if(user!=""){
+                     alert("Welcome again " + user)
+                 }else{
+                     user = prompt("Enter your name:");
+                     console.log("user: "+user)
+                     if(user!= "" && user!=null){
+                         setCookie("username",user,30);
+                     }
+                 }
+             }
+     </script>
+</head>
+
+<body onload="checkCookie();">
+    <!--header starts-->
+    <div class="header">
+        <h1>Quik-Del</h1>
+    </div>
+    <div class="sidebar">
+        <a href="index.html">Home</a>
+        <a href="#speciality">Popular Dishes</a>
+        <a href="#steps">How it works</a>
+        <a class="dropdown-btn" onclick="dropNav()">Restaurants
+            <i class="fa fa-caret-down"></i>
+        </a> 
+        <div class="dropdown-container">
+            <a href="rule34.html">Rule 34</a>
+            <a href="cracker.html">The Nutcracker</a>
+            <a href="spesso.html">Spesso</a>
+            <a href="burgerk.html">Burger King</a>
+        </div>
+        <a href="order.html">View Order</a>
+        <a href="bookTable.html">Book A Table</a>
+        <a href="#footer">Contact Us</a>
+    </div>
+    <!--header ends-->
+    <!--home section starts-->
+    <section class="home" id="home" >
+
+        <div class="content" >
+            <h3>discover restaurants that deliver to your doorstep</h3>
+            <p>Now you can order delicious food from any restaurant or even book tables at the click of a button!</p>
+            <a href="#" class="btn">order now</a>
+        </div>
+    
+        <div class="image">
+            <img src="images/home-img.png" alt="">
+        </div>
+    
+    </section>
+    
+    <!-- home section ends -->
+    <!--popular food-->
+    <section class="speciality" id="speciality">
+
+        <h1 class="heading"> most<span> popular </span>dishes</h1>
+    
+        <div class="box-container">
+    
+            <div class="box">
+                <img class="image" src="images/s-img-1.jpg" alt="">
+                <div class="content">
+                    <img src="images/s-1.png" alt="">
+                    <h3>tasty burger</h3>
+                    <p>Delicious vegetable patty with mayo and cheese</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class="image" src="images/s-img-2.jpg" alt="">
+                <div class="content">
+                    <img src="images/s-2.png" alt="">
+                    <h3>tasty pizza</h3>
+                    <p>Thin tasty crust with cheese and toppings</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class="image" src="images/s-img-3.jpg" alt="">
+                <div class="content">
+                    <img src="images/s-3.png" alt="">
+                    <h3>ice-cream</h3>
+                    <p>Variety of flavours both chocolate and fruits</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class="image" src="images/s-img-4.jpg" alt="">
+                <div class="content">
+                    <img src="images/s-4.png" alt="">
+                    <h3>cold drinks</h3>
+                    <p>Coffee, milkshakes, mocktails and much more.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class="image" src="images/s-img-5.jpg" alt="">
+                <div class="content">
+                    <img src="images/s-5.png" alt="">
+                    <h3>tasty sweets</h3>
+                    <p>Chocolately goodness for all your swwet tooth cravings</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class="image" src="images/s-img-6.jpg" alt="">
+                <div class="content">
+                    <img src="images/s-6.png" alt="">
+                    <h3>healty breakfast</h3>
+                    <p>Great start to the day with different breakfasts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--popular food ends-->
+    <!--steps section starts-->
+    <div class="step-container" id="steps">
+
+        <h1 class="heading">how it <span>works</span></h1>
+    
+        <section class="steps">
+    
+            <div class="box">
+                <img src="images/step-1.jpg" alt="">
+                <h3>choose your favorite food from your favorite restaurant</h3>
+            </div>
+            <div class="box">
+                <img src="images/step-2.jpg" alt="">
+                <h3>fast delivery</h3>
+            </div>
+            <div class="box">
+                <img src="images/step-3.jpg" alt="">
+                <h3>easy payments methods</h3>
+            </div>
+            <div class="box">
+                <img src="images/step-4.jpg" alt="">
+                <h3>and finally, enjoy your food</h3>
+            </div>
+        
+        </section>
+    
+    </div>
+    
+    <!-- steps section ends -->
+    <!--footer starts-->
+    <section class="footer" id="footer">
+
+        <div class="share">
+            <a href="#" class="btn">facebook</a>
+            <a href="#" class="btn">twitter</a>
+            <a href="#" class="btn">instagram</a>
+            <a href="#" class="btn">pinterest</a>
+            <a href="#" class="btn">linkedin</a>
+        </div>
+    
+        <h1 class="credit"> created by <span> dishita ashar </span> using <code>html </code>, <code>css </code>and <code>javascript.</code></h1>
+        <small>All images have been take from Google and information from Zomato( slightly modified)</small>
+    </section>
+    <!--footer ends-->
+
+<!--JS-->
+
+</body>
+</html>
